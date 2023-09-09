@@ -346,7 +346,7 @@ function App() {
                                                       color: "salmon",
                                                     }}
                                                   >
-                                                    ชั้น {product.shelf}
+                                                    {product.shelf}
                                                   </span>
                                                 </div>
 
