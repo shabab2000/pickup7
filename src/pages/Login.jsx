@@ -32,7 +32,7 @@ function Login() {
               timer: 2000,
             }).then(() => {
               // กำหนด URL ที่ต้องการ redirect ไป
-              window.location.href = "/";
+              window.location.href = "/pickup7/";
             });
           } else {
             Swal.fire("แจ้งเตือน!", responseJson.result, "warning");

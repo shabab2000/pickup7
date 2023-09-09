@@ -30,7 +30,7 @@ function App() {
     setLoading0(true);
     sessionStorage.removeItem("uid");
     setLoading0(false);
-    window.location.href = "/";
+    window.location.href = "/pickup7/";
     setUid();
   };
 
