@@ -385,56 +385,10 @@ function App() {
                                         </div>
                                       ))
                                     ) : (
-                                      <div className="col">
-                                        <div className="card product-card">
-                                          <div className="card-header bg-transparent border-bottom-0">
-                                            <div className="d-flex align-items-center justify-content-end"></div>
-                                          </div>
-                                          <div style="text-align: center;">
-                                            <img
-                                              src="https://stock.akhoocafe.cloud/manage/assets/img/product/product_64fad850f3435.jpg"
-                                              className="card-img-top"
-                                              alt="..."
-                                              style="width: 100px; height: 100px;"
-                                            />
-                                          </div>
-                                          <div className="card-body">
-                                            <div className="product-info">
-                                              <h6 className="product-name mb-2">
-                                                โกโก้(ทิวลิป)
-                                              </h6>
-                                              <div style="display: flex; justify-content: space-between;">
-                                                <div className="product-price">
-                                                  <span style="font-size: 16px; color: blue; font-weight: bold;">
-                                                    ฿ 0
-                                                  </span>
-                                                </div>
-                                                <span style="font-size: 16px; color: skyblue;">
-                                                  (บาร์น้ำ)
-                                                </span>
-                                              </div>
-                                              <div style="display: flex; justify-content: space-between;">
-                                                <span style="font-weight: bold;">
-                                                  {" "}
-                                                  P0060
-                                                </span>
-                                                <span style="font-weight: bold; color: salmon;">
-                                                  ชั้น ชั้า1(แถวที่ 2)
-                                                </span>
-                                              </div>
-                                              <div className=" mt-2">
-                                                <div className="row">
-                                                  <div className="col-6"></div>
-                                                  <div className="col-6">
-                                                    <button className="btn btn-primary ">
-                                                      <i className="fas fa-plus"></i>
-                                                    </button>
-                                                  </div>
-                                                </div>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </div>
+                                      <div className="col-12">
+                                        <h5 style={{ textAlign: "center" }}>
+                                          ไม่มีรายสินค้าหมวดหมู่นี้
+                                        </h5>
                                       </div>
                                     )}
                                   </div>
