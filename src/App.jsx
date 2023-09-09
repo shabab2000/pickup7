@@ -53,8 +53,9 @@ function App() {
 
   const fetchCart = async () => {
     try {
+      const uids = await sessionStorage.getItem("uid");
       const response = await axios.get(
-        "https://stock.akhoocafe.cloud/manage/api/cart.php?uid="+uid
+        "https://stock.akhoocafe.cloud/manage/api/cart.php?uid="+uids
       );
       setCart(response.data);
     } catch (error) {
