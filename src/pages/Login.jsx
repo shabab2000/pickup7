@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import Swal from "sweetalert2";
 import axios from "axios";
-import { redirect } from "react-router-dom";
-
 function Login() {
   const [code, setCode] = useState("");
   const [password, setPassword] = useState("");
