@@ -1,5 +1,5 @@
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import reactLogo from "./assets/react.svg";
+import viteLogo from "/vite.svg";
 import "./css/bootstrap-extended.css";
 import "./css/bootstrap.min.css";
 import "./css/main.css";
@@ -33,7 +33,6 @@ function App() {
     window.location.href = "/pickup7/";
     setUid();
   };
-
 
   // ฟังก์ชันเมื่อเลือกหมวดหมู่
   const handleSelectCategory = async (id) => {
@@ -201,73 +200,80 @@ function App() {
 
   return uid ? (
     <>
-    <div className="p-5">
-      <div className="page-content-wrapper">
-        <div className="page-content">
-          <div className="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-            <div className="breadcrumb-title pe-3">เบิกสินค้า</div>
-            <div className="ps-3">
-              <nav aria-label="breadcrumb">
-                <ol className="breadcrumb mb-0 p-0 align-items-center">
-                  <i className="fas fa-chevron-right "></i> &emsp;
-                  <li className="breadcrumb-item active" aria-current="page">
-                    เบิกสินค้า
-                  </li>
-                </ol>
-              </nav>
+      <div className="p-5">
+        <div className="page-content-wrapper">
+          <div className="page-content">
+            <div className="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+              <div className="breadcrumb-title pe-3">เบิกสินค้า</div>
+              <div className="ps-3">
+                <nav aria-label="breadcrumb">
+                  <ol className="breadcrumb mb-0 p-0 align-items-center">
+                    <i className="fas fa-chevron-right "></i> &emsp;
+                    <li className="breadcrumb-item active" aria-current="page">
+                      เบิกสินค้า
+                    </li>
+                  </ol>
+                </nav>
+              </div>
+              <div className="ms-auto">
+                <button
+                  type="button"
+                  onClick={() => handleLogout()}
+                  disabled={loading0}
+                  className="btn btn-success"
+                >
+                  <i className="fas fa-sign-out-alt"></i> ออกจากระบบ
+                </button>
+              </div>
             </div>
-            <div className="ms-auto">
-              <button
-                type="button"
-                onClick={() => handleLogout()}
-                disabled={loading0}
-                className="btn btn-success"
-              >
-                <i className="fas fa-sign-out-alt"></i> ออกจากระบบ
-              </button>
-            </div>
-          </div>
 
-          <section className="shop-page">
-            <div className="shop-container">
-              <div className="card shadow-sm border-0">
-                <div className="card-body">
-                  <div className="row">
-                    <div style={{ display: "flex", flexDirection: "row",paddingBottom:15 }}>
-                      {selectedCategory != 0 ? (
-                        <i
-                          onClick={() => setSelectedCategory(0)}
-                          style={{ paddingRight: 15, cursor: "pointer" }}
-                          className="fas fa-arrow-left fa-2x"
-                        ></i>
-                      ) : null}
-                      <h5>
-                        หมวดหมู่ :{" "}
-                        {category
-                          ? category.map((c) => (
-                              <span key={c.cid} value={c.cid}>
-                                {c.cid == selectedCategory ? c.category : null}
-                              </span>
-                            ))
-                          : null}
-                      </h5>
+            <section className="shop-page">
+              <div className="shop-container">
+                <div className="card shadow-sm border-0">
+                  <div className="card-body">
+                    <div className="row">
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "row",
+                          paddingBottom: 15,
+                        }}
+                      >
+                        {selectedCategory != 0 ? (
+                          <i
+                            onClick={() => setSelectedCategory(0)}
+                            style={{ paddingRight: 15, cursor: "pointer" }}
+                            className="fas fa-arrow-left fa-2x"
+                          ></i>
+                        ) : null}
+                        <h5>
+                          หมวดหมู่ :{" "}
+                          {category
+                            ? category.map((c) => (
+                                <span key={c.cid} value={c.cid}>
+                                  {c.cid == selectedCategory
+                                    ? c.category
+                                    : null}
+                                </span>
+                              ))
+                            : null}
+                        </h5>
+                      </div>
+                      <div className="col-3"></div>
                     </div>
-                    <div className="col-3"></div>
-                  </div>
-                  <div className="row">
-                    <div className="col-12 col-xl-12">
-                      <div className="product-wrapper">
-                        
-                        <div className="row">
-                          <div className="col-9">
-                            <div className="product-grid">
-                              {selectedCategory != 0 ? (
-                                <div
-                                  className="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4"
-                                  id="products-container"
-                                >
-                                  {product
-                                    ? product.map((product) => (
+                    <div className="row">
+                      <div className="col-12 col-xl-12">
+                        <div className="product-wrapper">
+                          <div className="row">
+                            <div className="col-9">
+                              <div className="product-grid">
+                                {selectedCategory != 0 ? (
+                                  <div
+                                    className="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4"
+                                    id="products-container"
+                                  >
+                                    {product ? (
+                                      product.map((product) => (
                                         <div key={product.id} className="col">
                                           <div className="card product-card">
                                             <div className="card-header bg-transparent border-bottom-0">
@@ -378,184 +384,191 @@ function App() {
                                           </div>
                                         </div>
                                       ))
-                                    : null}
-                                </div>
-                              ) : (
-                                <div
-                                  className="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4"
-                                  id="products-container"
-                                >
-                                  {category
-                                    ? category.map((product) => (
-                                        <div
-                                          key={product.cid}
-                                          className="col"
-                                          onClick={() => 
-                                            handleSelectCategory(product.cid)
-                                          }
-                                          style={{ cursor: "pointer" }}
-                                        >
-                                          <div className="card product-card">
-                                            <div className="card-header bg-transparent border-bottom-0">
-                                              <div className="d-flex align-items-center justify-content-end"></div>
-                                            </div>
-                                            <div
-                                              style={{ textAlign: "center" }}
-                                            >
-                                              <img
-                                                src={product.img_url}
-                                                style={{
-                                                  width: 100,
-                                                  height: 100,
-                                                }}
-                                                className="card-img-top"
-                                                alt="..."
-                                              />
-                                            </div>
-                                            <div className="card-body">
-                                              <div className="product-info">
-                                                <h6 className="product-name mb-2">
-                                                  {product.name}
-                                                </h6>
-                                                <div
+                                    ) : (
+                                      <div className="col">
+                                        <h5 style={{ textAlign: "center" }}>
+                                          ไม่มีรายสินค้าหมวดหมู่นี้
+                                        </h5>
+                                      </div>
+                                    )}
+                                  </div>
+                                ) : (
+                                  <div
+                                    className="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4"
+                                    id="products-container"
+                                  >
+                                    {category
+                                      ? category.map((product) => (
+                                          <div
+                                            key={product.cid}
+                                            className="col"
+                                            onClick={() =>
+                                              handleSelectCategory(product.cid)
+                                            }
+                                            style={{ cursor: "pointer" }}
+                                          >
+                                            <div className="card product-card">
+                                              <div className="card-header bg-transparent border-bottom-0">
+                                                <div className="d-flex align-items-center justify-content-end"></div>
+                                              </div>
+                                              <div
+                                                style={{ textAlign: "center" }}
+                                              >
+                                                <img
+                                                  src={product.img_url}
                                                   style={{
-                                                    display: "flex",
-                                                    justifyContent:
-                                                      "space-between",
+                                                    width: 100,
+                                                    height: 100,
                                                   }}
-                                                >
-                                                  <div className="product-price">
-                                                    <span
-                                                      style={{
-                                                        fontSize: 16,
-                                                        color: "blue",
-                                                        fontWeight: "bold",
-                                                      }}
-                                                    >
-                                                      {product.category}
-                                                    </span>
+                                                  className="card-img-top"
+                                                  alt="..."
+                                                />
+                                              </div>
+                                              <div className="card-body">
+                                                <div className="product-info">
+                                                  <h6 className="product-name mb-2">
+                                                    {product.name}
+                                                  </h6>
+                                                  <div
+                                                    style={{
+                                                      display: "flex",
+                                                      justifyContent:
+                                                        "space-between",
+                                                    }}
+                                                  >
+                                                    <div className="product-price">
+                                                      <span
+                                                        style={{
+                                                          fontSize: 16,
+                                                          color: "blue",
+                                                          fontWeight: "bold",
+                                                        }}
+                                                      >
+                                                        {product.category}
+                                                      </span>
+                                                    </div>
                                                   </div>
                                                 </div>
                                               </div>
                                             </div>
                                           </div>
-                                        </div>
-                                      ))
-                                    : null}
-                                </div>
-                              )}
+                                        ))
+                                      : null}
+                                  </div>
+                                )}
+                              </div>
                             </div>
-                          </div>
-                          <div className="col-3">
-                            <h5>รายการ</h5>
-                            <hr />
-                            <div id="cart-response">
-                              <table className=" table table-striped">
-                                <tbody>
-                                  {cart
-                                    ? cart.map((c) => (
-                                        <tr key={c.id}>
-                                          <td
-                                            style={{ width: "70%" }}
-                                            className=" align-middle"
-                                          >
-                                            <h6>{c.name}</h6>
-                                          </td>
-                                          <td className=" align-middle titles text-nowrap">
-                                            <div style={{ padding: 5 }}>
-                                              <span
-                                                onClick={() =>
-                                                  UpdateCart(c.idp, "minus")
-                                                }
-                                                style={{
-                                                  backgroundColor: "#ddd",
-                                                  padding: 5,
-                                                  paddingLeft: 10,
-                                                  paddingRight: 10,
-                                                  borderRadius: "100%",
-                                                  cursor: "pointer",
-                                                  pointerEvents: loading1
-                                                    ? "none"
-                                                    : "auto", // ตั้งค่า pointerEvents เพื่อ disable ปุ่มเมื่อ quantity เป็น 1
-                                                  opacity: loading1 ? 0.5 : 1,
-                                                }}
-                                              >
-                                                <i className="fas fa-minus "></i>
-                                              </span>
-                                              <span style={{ fontSize: 18 }}>
-                                                &nbsp;&nbsp;{c.item}&nbsp;&nbsp;
-                                              </span>
-                                              <span
-                                                onClick={() =>
-                                                  UpdateCart(c.idp, "plus")
-                                                }
-                                                style={{
-                                                  backgroundColor: "#ddd",
-                                                  padding: 5,
-                                                  paddingLeft: 10,
-                                                  paddingRight: 10,
-                                                  borderRadius: "50%",
-                                                  cursor: "pointer",
-                                                  pointerEvents: loading1
-                                                    ? "none"
-                                                    : "auto", // ตั้งค่า pointerEvents เพื่อ disable ปุ่มเมื่อ quantity เป็น 1
-                                                  opacity: loading1 ? 0.5 : 1,
-                                                }}
-                                              >
-                                                <i className="fas fa-plus "></i>
-                                              </span>
-                                            </div>
-                                          </td>
-                                        </tr>
-                                      ))
+                            <div className="col-3">
+                              <h5>รายการ</h5>
+                              <hr />
+                              <div id="cart-response">
+                                <table className=" table table-striped">
+                                  <tbody>
+                                    {cart
+                                      ? cart.map((c) => (
+                                          <tr key={c.id}>
+                                            <td
+                                              style={{ width: "70%" }}
+                                              className=" align-middle"
+                                            >
+                                              <h6>{c.name}</h6>
+                                            </td>
+                                            <td className=" align-middle titles text-nowrap">
+                                              <div style={{ padding: 5 }}>
+                                                <span
+                                                  onClick={() =>
+                                                    UpdateCart(c.idp, "minus")
+                                                  }
+                                                  style={{
+                                                    backgroundColor: "#ddd",
+                                                    padding: 5,
+                                                    paddingLeft: 10,
+                                                    paddingRight: 10,
+                                                    borderRadius: "100%",
+                                                    cursor: "pointer",
+                                                    pointerEvents: loading1
+                                                      ? "none"
+                                                      : "auto", // ตั้งค่า pointerEvents เพื่อ disable ปุ่มเมื่อ quantity เป็น 1
+                                                    opacity: loading1 ? 0.5 : 1,
+                                                  }}
+                                                >
+                                                  <i className="fas fa-minus "></i>
+                                                </span>
+                                                <span style={{ fontSize: 18 }}>
+                                                  &nbsp;&nbsp;{c.item}
+                                                  &nbsp;&nbsp;
+                                                </span>
+                                                <span
+                                                  onClick={() =>
+                                                    UpdateCart(c.idp, "plus")
+                                                  }
+                                                  style={{
+                                                    backgroundColor: "#ddd",
+                                                    padding: 5,
+                                                    paddingLeft: 10,
+                                                    paddingRight: 10,
+                                                    borderRadius: "50%",
+                                                    cursor: "pointer",
+                                                    pointerEvents: loading1
+                                                      ? "none"
+                                                      : "auto", // ตั้งค่า pointerEvents เพื่อ disable ปุ่มเมื่อ quantity เป็น 1
+                                                    opacity: loading1 ? 0.5 : 1,
+                                                  }}
+                                                >
+                                                  <i className="fas fa-plus "></i>
+                                                </span>
+                                              </div>
+                                            </td>
+                                          </tr>
+                                        ))
+                                      : null}
+                                  </tbody>
+                                </table>
+                                <h6>
+                                  <span style={{ fontWeight: "bold" }}>
+                                    พนักงานเบิก:
+                                  </span>{" "}
+                                  {staff?.name} {staff?.last}{" "}
+                                  {staff?.nickname
+                                    ? +"(" + staff.nickname + ")"
                                     : null}
-                                </tbody>
-                              </table>
-                              <h6>
-                                <span style={{ fontWeight: "bold" }}>
-                                  พนักงานเบิก:
-                                </span>{" "}
-                                {staff?.name} {staff?.last}{" "}
-                                {staff?.nickname
-                                  ? +"(" + staff.nickname + ")"
-                                  : null}
-                              </h6>
+                                </h6>
 
-                              <div className="row">
-                                <div className="col-12 "></div>
-                                <div
-                                  className="col-12 mt-3"
-                                  style={{
-                                    paddingTop: 5,
-                                    textAlign: "center",
-                                  }}
-                                >
-                                  {cart ? (
-                                    loadings ? (
-                                      <button
-                                        type="submit"
-                                        name="btn_login"
-                                        className="btn btn-primary titles"
-                                        disabled
-                                      >
-                                        <i className="fas fa-spinner fa-spin"></i>{" "}
-                                        กำลังบันทึก
-                                      </button>
-                                    ) : (
-                                      <button
-                                        onClick={addPickup}
-                                        className="btn btn-success"
-                                      >
-                                        ยืนยันการเบิก
-                                      </button>
-                                    )
-                                  ) : null}
+                                <div className="row">
+                                  <div className="col-12 "></div>
+                                  <div
+                                    className="col-12 mt-3"
+                                    style={{
+                                      paddingTop: 5,
+                                      textAlign: "center",
+                                    }}
+                                  >
+                                    {cart ? (
+                                      loadings ? (
+                                        <button
+                                          type="submit"
+                                          name="btn_login"
+                                          className="btn btn-primary titles"
+                                          disabled
+                                        >
+                                          <i className="fas fa-spinner fa-spin"></i>{" "}
+                                          กำลังบันทึก
+                                        </button>
+                                      ) : (
+                                        <button
+                                          onClick={addPickup}
+                                          className="btn btn-success"
+                                        >
+                                          ยืนยันการเบิก
+                                        </button>
+                                      )
+                                    ) : null}
+                                  </div>
                                 </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                        {/* <div className="row">
+                          {/* <div className="row">
                           <div className="col-9">
                             <div className="product-grid">
                               {searchKeyword ? (
@@ -875,25 +888,25 @@ function App() {
                             </div>
                           </div>
                         </div> */}
-                        <hr />
+                          <hr />
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </section>
+            </section>
+          </div>
         </div>
+        <a href="javaScript:;" className="back-to-top">
+          <ion-icon name="arrow-up-outline"></ion-icon>
+        </a>
+        <div className="overlay"></div>
       </div>
-      <a href="javaScript:;" className="back-to-top">
-        <ion-icon name="arrow-up-outline"></ion-icon>
-      </a>
-      <div className="overlay"></div>
-    </div>
     </>
   ) : (
     <Login />
   );
 }
 
-export default App
+export default App;
