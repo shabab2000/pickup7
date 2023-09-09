@@ -55,7 +55,7 @@ function App() {
     try {
       const uids = await sessionStorage.getItem("uid");
       const response = await axios.get(
-        "https://stock.akhoocafe.cloud/manage/api/cart.php?uid="+uids
+        "https://stock.akhoocafe.cloud/manage/api/cart.php?uid=" + uids
       );
       setCart(response.data);
     } catch (error) {
@@ -122,7 +122,7 @@ function App() {
       .post("https://stock.akhoocafe.cloud/manage/api/add_cart.php", {
         pid: productId,
         item: quantity,
-        uid: uid
+        uid: uid,
       })
       .then((response) => response.data)
       .then((responseJson) => {
@@ -243,7 +243,7 @@ function App() {
                       >
                         {selectedCategory != 0 ? (
                           <i
-                            onClick={() => setSelectedCategory(0)}
+                            onClick={() => {setSelectedCategory(0);setProducts([])}}
                             style={{ paddingRight: 15, cursor: "pointer" }}
                             className="fas fa-arrow-left fa-2x"
                           ></i>
@@ -270,13 +270,13 @@ function App() {
                             <div className="col-9">
                               <div className="product-grid">
                                 {selectedCategory != 0 ? (
-                                  <div
-                                    className="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4"
-                                    id="products-container"
-                                  >
+                                  <div className="row ">
                                     {product ? (
                                       product.map((product) => (
-                                        <div key={product.id} className="col">
+                                        <div
+                                          key={product.id}
+                                          className="col-6 col-lg-3 "
+                                        >
                                           <div className="card product-card">
                                             <div className="card-header bg-transparent border-bottom-0">
                                               <div className="d-flex align-items-center justify-content-end"></div>
@@ -388,9 +388,14 @@ function App() {
                                       ))
                                     ) : (
                                       <div className="col-12">
-                                        <h5 style={{ textAlign: "center" }}>
-                                          ไม่มีรายสินค้าหมวดหมู่นี้
-                                        </h5>
+                                        <div
+                                          class="alert alert-warning"
+                                          role="alert"
+                                        >
+                                          <h5 style={{ textAlign: "center" }}>
+                                            ไม่มีรายสินค้าหมวดหมู่นี้
+                                          </h5>
+                                        </div>
                                       </div>
                                     )}
                                   </div>
