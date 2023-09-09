@@ -1,18 +1,10 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import "./css/bootstrap-extended.css";
-import "./css/bootstrap.min.css";
-import "./css/main.css";
-import "./css/style.css";
-import "sweetalert2/dist/sweetalert2.min.css";
-import Login from "./pages/Login";
-
 import React, { useState, useEffect } from "react";
 import Swal from "sweetalert2";
 import axios from "axios";
+import { redirect } from "react-router-dom";
+import Login from "./Login";
 
-function App() {
+function Pickup() {
   const [code, setCode] = useState("");
   const [product, setProducts] = useState();
   const [cart, setCart] = useState();
@@ -35,6 +27,13 @@ function App() {
     setUid();
   };
 
+  const handleSearch = async (keyword) => {
+    setSearchKeyword(keyword);
+    const filteredProducts = product.filter((product) =>
+      product.name.toLowerCase().includes(keyword.toLowerCase())
+    );
+    setSearchResults(filteredProducts);
+  };
 
   // ฟังก์ชันเมื่อเลือกหมวดหมู่
   const handleSelectCategory = async (id) => {
@@ -199,9 +198,9 @@ function App() {
 
   console.log(searchResults);
   console.log(product);
+  //console.log(sessionStorage.getItem("uid"));
 
   return uid ? (
-    <>
     <div className="p-5">
       <div className="page-content-wrapper">
         <div className="page-content">
@@ -891,10 +890,9 @@ function App() {
       </a>
       <div className="overlay"></div>
     </div>
-    </>
   ) : (
     <Login />
   );
 }
 
-export default App
+export default Pickup;
