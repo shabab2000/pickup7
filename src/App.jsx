@@ -54,7 +54,7 @@ function App() {
   const fetchCart = async () => {
     try {
       const response = await axios.get(
-        "https://stock.akhoocafe.cloud/manage/api/cart.php"
+        "https://stock.akhoocafe.cloud/manage/api/cart.php?uid="+uid
       );
       setCart(response.data);
     } catch (error) {
@@ -121,6 +121,7 @@ function App() {
       .post("https://stock.akhoocafe.cloud/manage/api/add_cart.php", {
         pid: productId,
         item: quantity,
+        uid: uid
       })
       .then((response) => response.data)
       .then((responseJson) => {
